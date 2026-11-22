@@ -1,0 +1,30 @@
+[
+  {
+    "date": "11/15/2026",
+    "volume": 3000,
+    "bodyPart": "chest",
+    "exercises": ["push-up", "dip"],
+    "sessionTime": 40
+  },
+  {
+    "date": "11/17/2026",
+    "volume": 4400,
+    "bodyPart": "back",
+    "exercises": ["row", "lat pulldown"],
+    "sessionTime": 55
+  },
+  {
+    "date": "11/19/2026",
+    "volume": 2800,
+    "bodyPart": "arms",
+    "exercises": ["curl", "hammer curl"],
+    "sessionTime": 35
+  },
+  {
+    "date": "11/21/2026",
+    "volume": 5000,
+    "bodyPart": "legs",
+    "exercises": ["squat", "lunge"],
+    "sessionTime": 60
+  }
+]
