@@ -1,0 +1,10 @@
+#separator:tab
+#html:true
+#tags column:3
+#deck:Full-Stack AI
+#notetype:Basic
+In JavaScript: what does this return, and why?<br><code>const f = () =&gt; { name: 'Bri' };<br>f();</code>	<code>undefined</code>. The braces are a function body and <code>name:</code> is a label, not a key. Wrap the object in parentheses: <code>() =&gt; ({ name: 'Bri' })</code>.	day-02 js arrow-functions
+In JavaScript: what happens here, and why?<br><code>const user = { city: 'Prishtina' };<br>const { city: town } = user;<br>console.log(city);</code>	<code>ReferenceError</code>. In <code>key: name</code>, the left side is the key to read and the right side is the only new variable. <code>city</code> is never declared, only <code>town</code>.	day-02 js destructuring
+In JavaScript: what does this print, and why?<br><code>const { country = 'Kosovo' } = { country: null };<br>console.log(country);</code>	<code>null</code>. A destructuring default only applies when the value is <code>undefined</code>, never for <code>null</code>.	day-02 js destructuring
+In JavaScript: what are <code>first</code> and <code>others</code>, and is <code>...</code> rest or spread here?<br><code>function f(first, ...others) {}<br>f(1, 2, 3);</code>	<code>first</code> is <code>1</code>, <code>others</code> is the array <code>[2, 3]</code>. Collecting leftovers on the receiving side is rest. Unpacking in a call or array literal (<code>[...nums, 4]</code>) is spread.	day-02 js rest-spread
+In JavaScript: what does this do, and how do you fix it?<br><code>const user = { address: { city: 'P' } };<br>user.address?.zip.code</code>	<code>TypeError</code>: <code>address</code> exists, so <code>.zip</code> gives <code>undefined</code>, and <code>.code</code> reads from it. <code>?.</code> only guards the step directly to its left. Fix: <code>.zip?.code</code>.	day-02 js optional-chaining

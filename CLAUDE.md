@@ -33,8 +33,30 @@ before TypeScript, React, Next.js and then AI engineering.
 - **Sunday quiz:** when I paste my `LEARNING_LOG.md` and say "quiz", ask 10 mixed questions,
   weighted toward older topics: 4 explain-why, 3 predict-the-output, 3 find-the-bug. Ask one at
   a time, grade each answer, then name my 2 weakest topics.
-- **Close:** remind me to write the 3-sentence summary in `LEARNING_LOG.md`, make 3–5 Anki
-  cards, and commit and push. Don't write the summary for me. Critique mine instead.
+- **Close:** at the end of each day, write the 3-sentence `LEARNING_LOG.md` entry (plus topics
+  covered and my weak spots) and 3–5 Anki cards for me. I allowed this on Nov 10, 2026 to save
+  time. The Socratic questioning stays mine to do. Then remind me to commit and push.
+
+## Anki cards (written by Claude via the Anki MCP)
+
+- Deck `Full-Stack AI`, note type `Basic`, tags `day-NN` plus the topic (`js`, `git`, ...).
+  3–5 cards per day. On big days (many new methods or topics) more is fine, which I allowed
+  on Nov 16, 2026. Still one idea per card, and ask before going far beyond that.
+- Build cards from what I got wrong, hesitated on or mixed up that day, not from a summary of
+  everything. If I confused X with Y, write a card that contrasts them.
+- One idea per card. The answer fits in one or two lines. If the answer is a list, split it
+  into one card per item.
+- The front is a question that forces recall, never a bare term. Prefer "why" and "what happens
+  when" over "what is" definitions. No yes/no questions.
+- Code topics: put a tiny snippet (5 lines max) on the front and ask what it prints or throws,
+  and why. The back gives the result plus a one-line reason. Use cloze only for syntax I keep
+  forgetting.
+- Add a short context cue when words are ambiguous ("In JavaScript, ...").
+- No reversed cards unless I ask. Keep my own wording where I explained it well.
+- Search for duplicates first (`find_notes`) and update a card instead of adding a copy. If I keep
+  failing a card, rewrite it smaller instead of keeping it.
+- Offer an AnkiWeb sync at the start and end of a session. Never pick an upload or download
+  direction for a full-sync conflict without asking me.
 
 ## Phases 5–10 (AI engineering, Day 71+)
 
