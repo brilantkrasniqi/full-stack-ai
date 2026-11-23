@@ -1,0 +1,184 @@
+/* Workout Stats
+   Idea: a lifting log read like a gym scoreboard. Big condensed numerals,
+   cool chalk-grey page, ink-navy structure, one plate-red accent. */
+
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Hanken+Grotesk:wght@400;600&display=swap");
+
+:root {
+  --chalk: #e4e9ec;
+  --paper: #f8fafa;
+  --ink: #0e1b2c;
+  --steel: #566676;
+  --line: #c5ced4;
+  --plate: #d4261c;
+
+  --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--chalk);
+}
+
+/* The page: title on top, filters left, sort right, cards underneath. */
+body {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(24px, 5vw, 64px) clamp(16px, 4vw, 32px) 96px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 24px;
+  row-gap: 28px;
+  align-items: center;
+  font-family: var(--body);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+/* Optional heading: add <h1>Workout stats</h1> as the first child of <body>. */
+body > h1 {
+  grid-column: 1 / -1;
+  margin: 0;
+  font: 800 clamp(52px, 9vw, 116px) / 0.9 var(--display);
+  letter-spacing: -0.01em;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filters button {
+  padding: 10px 18px;
+  font: 600 0.95rem / 1 var(--body);
+  text-transform: capitalize;
+  color: var(--ink);
+  background: transparent;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.filters button:hover {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.filters button:active {
+  transform: translateY(1px);
+}
+
+/* Works if you later mark the chosen filter with class="active" or aria-pressed="true". */
+.filters button.active,
+.filters button[aria-pressed="true"] {
+  color: #fff;
+  background: var(--plate);
+  border-color: var(--plate);
+}
+
+/* Sort */
+#sort {
+  justify-self: end;
+  padding: 10px 40px 10px 18px;
+  font: 600 0.95rem / 1 var(--body);
+  color: var(--ink);
+  background: var(--paper)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%230E1B2C' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    no-repeat right 16px center / 12px;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  appearance: none;
+  cursor: pointer;
+}
+
+/* Cards */
+#cards {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 20px 22px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-top: 6px solid var(--ink);
+  border-radius: 0;
+}
+
+.card h2 {
+  margin: 0;
+  font: 800 clamp(34px, 4vw, 44px) / 1 var(--display);
+  letter-spacing: 0.005em;
+  text-transform: capitalize;
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--steel);
+}
+
+/* The number that matters: the volume (second <p> in the card). */
+.card p:nth-of-type(2) {
+  margin-top: 14px;
+  font: 800 clamp(56px, 7vw, 72px) / 0.95 var(--display);
+  font-variant-numeric: tabular-nums;
+  color: var(--plate);
+}
+
+/* Unit. Delete this rule if you put the unit in the text in script.js. */
+.card p:nth-of-type(2)::after {
+  content: " kg";
+  font: 600 0.95rem / 1 var(--body);
+  color: var(--steel);
+}
+
+/* The "couldn't load" message is an <h2> placed directly inside #cards. */
+#cards > h2 {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 18px 22px;
+  font: 600 1.1rem / 1.4 var(--body);
+  color: var(--plate);
+  background: var(--paper);
+  border: 1.5px solid var(--plate);
+}
+
+/* Keyboard focus */
+button:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--plate);
+  outline-offset: 3px;
+}
+
+/* Phones: stack the toolbar */
+@media (max-width: 640px) {
+  body {
+    grid-template-columns: 1fr;
+  }
+
+  #sort {
+    justify-self: stretch;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
